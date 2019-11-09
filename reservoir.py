@@ -1,46 +1,68 @@
 import sys
+import random
 
 def check_input():
 
-	if len(sys.argv) != 4:
-
+	if len(sys.argv) != 2:
+		print(len(sys.argv))
+		print(sys.argv)
 		print('Wrong format. Try: "reservoir.py" "sample_number" "<" "input_file.txt"')
 		sys.exit(-1)
 
 
-def reservoir_sampling():
+def reservoir_sampling(K, row, row_number, selected_rows):
+
+	if row_number == 1:
+		
+		selected_rows = []
+
+	if len(selected_rows) < K:
+
+		if random.randint(1, row_number) < K:
+
+			selected_rows.insert(len(selected_rows), row)
+
+	else:
+
+		if random.randint(1, row_number) < K:
+	
+			selected_rows[random.randint(1, len(selected_rows))] = row
+
+	return selected_rows
 
 
+def print_rows(sampled_rows):
 
+	for i in range(len(sampled_rows)):
 
-
-
-
-
-
+		print('%d. %s' % (i + 1, sampled_rows[i]))
 
 
 if __name__ == '__main__':
 
 	check_input()
 
-	with open(input_file, 'r', encoding='UTF-8') as std_in:
+	K = int(sys.argv[1])
+
+	with open('input.txt', 'r', encoding='UTF-8') as std_in:
 
 		row = std_in.readline()
+		row_number = 1
+		sampled_rows = []
 
 		while row != ' ':
 
-			sampled_row = reservoir_sampling(row) 
-
-			with open('output.txt', 'w+', encoding='UTF-8') as std_out:
-
-				std_out.writelines('%s\n' % sampled_row)
-
+			sampled_rows = reservoir_sampling(K, row, row_number, sampled_rows)
+			print(sampled_rows)
 			try:
 
-				row = std_in.__next__() 	
+				row = std_in.__next__()
+				row_number += 1
 
 			except StopIteration:
 
-				print('End of file')
+				break
+
+	print_rows(sampled_rows)
+
 
