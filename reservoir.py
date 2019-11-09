@@ -16,7 +16,7 @@ def check_input():
 
 def reservoir_sampling(K, row, row_number, selected_rows):
 
-	if int((random.random() * row_number)) < K:
+	if random.random() < min(1, (K / row_number)):
 
 		if len(selected_rows) < K:
 			
@@ -53,7 +53,8 @@ if __name__ == '__main__':
 		while row != ' ':
 
 			sampled_rows = reservoir_sampling(K, row, row_number, sampled_rows)
-			
+			print(sampled_rows)
+
 			try:
 
 				row = std_in.__next__()
