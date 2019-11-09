@@ -33,9 +33,6 @@ def reservoir_sampling(K, row, row_number, selected_rows):
 	return selected_rows
 
 
-#https://web.archive.org/web/20141026071430/http://propersubset.com:80/2010/04/choosing-random-elements.html
-
-
 if __name__ == '__main__':
 
 	check_input()
