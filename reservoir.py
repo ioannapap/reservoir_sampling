@@ -23,13 +23,14 @@ def reservoir_sampling(K, row, row_number, selected_rows):
 			selected_rows.insert(len(selected_rows), row)
 
 	else:
-
-		if random.randint(1, row_number) < K:
+		s = int(random.random() * row_number)
+		if s < K:
 	
-			selected_rows[random.randint(1, len(selected_rows))] = row
+			selected_rows[s] = row
 
 	return selected_rows
 
+#https://web.archive.org/web/20141026071430/http://propersubset.com:80/2010/04/choosing-random-elements.html
 
 def print_rows(sampled_rows):
 
