@@ -65,5 +65,4 @@ if __name__ == '__main__':
 				break
 
 	print_rows(sampled_rows)
-
-
+	
