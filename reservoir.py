@@ -53,7 +53,7 @@ if __name__ == '__main__':
 		while row != ' ':
 
 			sampled_rows = reservoir_sampling(K, row, row_number, sampled_rows)
-			print(sampled_rows)
+			#print(sampled_rows)
 
 			try:
 
