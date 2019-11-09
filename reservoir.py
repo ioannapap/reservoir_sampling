@@ -14,12 +14,13 @@ def print_rows(sampled_rows):
 
 	for i in range(len(sampled_rows)):
 
-		print('%d. %s' % (i + 1, sampled_rows[i]))
+		if sampled_rows[0] != '':
+			print('%d. %s' % (i + 1, sampled_rows[i]))
 
 
 def reservoir_sampling(K, row, row_number, selected_rows):
 
-	if (random.random() * row_number) < K:
+	if int((random.random() * row_number)) < K:
 
 		if len(selected_rows) < K:
 			
