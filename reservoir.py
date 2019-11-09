@@ -9,13 +9,9 @@ def check_input():
 		print('Wrong format. Try:\n python3 reservoir.py "sample_number_K" "<" "input_file.txt"')
 		sys.exit(-1)
 
+	if int(sys.argv[1]) <= 0:
 
-def print_rows(sampled_rows):
-
-	for i in range(len(sampled_rows)):
-
-		if sampled_rows[0] != '':
-			print('%d. %s' % (i + 1, sampled_rows[i]))
+		sys.exit(-1)
 
 
 def reservoir_sampling(K, row, row_number, selected_rows):
@@ -34,15 +30,19 @@ def reservoir_sampling(K, row, row_number, selected_rows):
 	return selected_rows
 
 
+def print_rows(sampled_rows):
+
+	for i in range(len(sampled_rows)):
+
+		if sampled_rows[0] != '':
+			print('%d. %s' % (i + 1, sampled_rows[i]))
+
+
 if __name__ == '__main__':
 
 	check_input()
 
-	K = int(sys.argv[1])
-	
-	if K == 0:
-
-		sys.exit(-1)
+	K = int(sys.argv[1])	
 
 	with open('input.txt', 'r', encoding='UTF-8') as std_in:
 
