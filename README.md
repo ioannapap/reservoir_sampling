@@ -9,6 +9,7 @@ This algorithm is implemented in Python3 and runs with the following command lin
 >> python3 reservoir.py sample_number_K < input_file.txt
 
 sample_number_K:  any positive integer number
+
 input_file.txt:   any .txt file
 
 Note that, it is necessary for the files to be in the same exact folder and run the above Terminal
