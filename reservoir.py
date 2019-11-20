@@ -1,4 +1,4 @@
-#Ioanna Papapianni 2790
+#Ioanna Papapianni
 
 import sys
 import random
