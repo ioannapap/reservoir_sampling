@@ -1,5 +1,3 @@
-#Ioanna Papapianni
-
 import sys
 import random
 
